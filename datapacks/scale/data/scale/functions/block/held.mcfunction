@@ -1,7 +1,7 @@
 tag @s remove stationary
 # Moving a held block without pushing it into the wall
 scoreboard players operation $check id = @s id
-execute as @e[type=shulker,tag=block] if score @s id = $check id run tp @s ~0.5 -63 ~0.5
+execute as @e[type=block_display,tag=shulker,tag=block] if score @s id = $check id run tp @s ~0.5 -63 ~0.5
 execute as @e[type=marker,tag=held_block] at @s if score @s id = $check id run function scale:block/marker_data
 execute store result score $b_x pos run data get entity @s Pos[0] 1000
 execute store result score $b_y pos run data get entity @s Pos[1] 1000
@@ -29,10 +29,10 @@ scoreboard players set $x math 0
 scoreboard players set $y math 0
 scoreboard players set $z math 0
 
-#execute if score @s vel_y matches ..-1 positioned ~-1 ~-1.1 ~-1 if entity @e[type=block_display,tag=block,tag=stationary,dx=1,dy=1.1,dz=1] run scoreboard players set @s vel_y 0
+#execute if score @s vel_y matches ..-1 positioned ~-1 ~-1.1 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=stationary,dx=1,dy=1.1,dz=1] run scoreboard players set @s vel_y 0
 execute if score @s vel_y matches ..-1 unless block ~ ~-0.1 ~ air run scoreboard players set @s vel_y 0
 execute if score @s vel_y matches ..-1 unless block ~ ~-0.1 ~ air run tp @s ~ ~.1 ~
-#execute if score @s vel_y matches ..-1 positioned ~-1 ~-1.1 ~-1 if entity @e[type=block_display,tag=block,tag=stationary,dx=1,dy=1.1,dz=1] positioned ~1 ~1.7 ~1 align y run tp @s ~ ~ ~
+#execute if score @s vel_y matches ..-1 positioned ~-1 ~-1.1 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=stationary,dx=1,dy=1.1,dz=1] positioned ~1 ~1.7 ~1 align y run tp @s ~ ~ ~
 execute if score @s vel_y matches 1.. unless block ~ ~1.1 ~ air run tp @s ~ ~-.1 ~
 execute if score @s vel_y matches 1.. unless block ~ ~1.1 ~ air run scoreboard players set @s vel_y 0
 
@@ -71,7 +71,7 @@ execute store result entity @s Pos[1] double 0.001 run scoreboard players get $b
 execute store result entity @s Pos[2] double 0.001 run scoreboard players get $b_z pos
 
 execute unless block ~ ~-0.001 ~ air unless block ~ ~ ~ air positioned ~ ~0.5 ~ align y run tp @s ~ ~ ~
-#execute positioned ~-1 ~-.1 ~-1 if entity @e[type=block_display,tag=block,tag=stationary,dx=1,dy=1,dz=1] run say TOUCHING
+#execute positioned ~-1 ~-.1 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=stationary,dx=1,dy=1,dz=1] run say TOUCHING
 execute unless block ~ ~1.001 ~ air unless block ~ ~ ~ air positioned ~ ~-0.5 ~ align y run tp @s ~ ~ ~
 execute unless block ~-1.001 ~0.5 ~ air unless block ~ ~ ~ air positioned ~0.5 ~ ~ align x run tp @s ~ ~ ~
 execute unless block ~1.001 ~0.5 ~ air unless block ~ ~ ~ air positioned ~-0.5 ~ ~ align x run tp @s ~ ~ ~

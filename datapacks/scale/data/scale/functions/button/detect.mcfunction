@@ -1,6 +1,6 @@
 # Check if a button is pressed
-execute if score @s size_x matches 1250 positioned ~-1.25 ~-.015 ~-1.25 if entity @e[type=block_display,tag=block,dy=0,dx=1.25,dz=1.25] run tag @s add pressed
-execute if score @s size_x matches 1250 positioned ~-1.25 ~-.015 ~-1.25 unless entity @e[type=block_display,tag=block,dy=0,dx=1.25,dz=1.25] run tag @s remove pressed
+execute if score @s size_x matches 1250 positioned ~-1.25 ~-.015 ~-1.25 if entity @e[type=block_display,tag=block,tag=!shulker,dy=0,dx=1.25,dz=1.25] run tag @s add pressed
+execute if score @s size_x matches 1250 positioned ~-1.25 ~-.015 ~-1.25 unless entity @e[type=block_display,tag=block,tag=!shulker,dy=0,dx=1.25,dz=1.25] run tag @s remove pressed
 
 execute as @s[tag=pressed] run function scale:button/pressed
 
