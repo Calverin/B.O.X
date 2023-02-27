@@ -1,0 +1,4 @@
+execute as @e[type=block_display,tag=scale,tag=object] if score @s id = $connect id run scoreboard players operation @e[type=block_display,tag=button,tag=no_connection,limit=1,sort=nearest] id = @s id
+execute as @e[type=block_display,tag=scale,tag=object] if score @s id = $connect id run data modify storage scale:connect color set from entity @s glow_color_override
+data modify entity @e[type=block_display,tag=button,tag=no_connection,limit=1,sort=nearest] glow_color_override set from storage scale:connect color
+tag @e[type=block_display,tag=button,tag=no_connection,limit=1,sort=nearest] remove no_connection
