@@ -66,6 +66,9 @@ execute positioned ~-1 ~-1.21 ~-1 if entity @e[type=block_display,tag=block,tag=
 execute positioned ~-1 ~-1.21 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=stationary,dx=1,dy=1.21,dz=1] run function scale:block/push_out
 
 execute if score @s vel_x matches 0 if score @s vel_z matches 0 if score @s vel_y matches -1..1 unless block ~ ~-.001 ~ air run tag @s add stationary
+tag @s add temp
+execute if score @s vel_x matches 0 if score @s vel_z matches 0 if block ~ ~ ~ air positioned ~-1 ~-1.05 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=!temp,tag=!stationary,dx=1,dy=0.04,dz=1] run scoreboard players set @s vel_y 0
+tag @s remove temp
 execute if score @s vel_x matches 0 if score @s vel_z matches 0 if block ~ ~ ~ air positioned ~-1 ~-1.01 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=stationary,dx=1,dy=1.01,dz=1] run tag @s add stationary
 execute unless block ~ ~-0.001 ~ air unless block ~ ~ ~ air positioned ~ ~0.5 ~ align y run tp @s ~ ~ ~
 
