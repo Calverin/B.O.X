@@ -1,0 +1,14 @@
+{
+    "values": [
+        "minecraft:air",
+        "minecraft:chipped_anvil",
+        "minecraft:sea_pickle",
+        "minecraft:lantern",
+        "minecraft:tripwire_hook",
+        "#minecraft:flower_pots",
+        "minecraft:birch_fence",
+        "minecraft:acacia_button",
+        "minecraft:blue_carpet",
+        "minecraft:pink_carpet"
+    ]
+}

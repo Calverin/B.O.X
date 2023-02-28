@@ -2,5 +2,7 @@ summon block_display ~ ~ ~ {Tags:["scale","block","new_block"],block_state:{Name
 execute as @e[type=block_display,tag=new_block] at @s run data merge entity @s {width:1,height:1,transformation:{scale:[1.0f, 1.0f, 1.0f],translation:[-0.5f,0.0f,-0.5f]},interpolation_start:-2}
 execute as @e[type=block_display,tag=shulker] at @s run data merge entity @s {width:0,height:0,transformation:{scale:[0.0f, 0.0f, 0.0f],translation:[-0.5f,0.0f,-0.5f]},interpolation_start:-2}
 execute as @e[type=block_display,tag=new_block] at @s run function scale:setup/get_id
-execute as @e[type=block_display,tag=new_block] at @s on passengers run scoreboard players operation @s id = $new id
+execute as @e[type=block_display,tag=new_block] at @s run scoreboard players operation $check id = @s id
+execute as @e[type=block_display,tag=new_block] at @s on passengers run scoreboard players operation @s id = $check id
+execute as @e[type=block_display,tag=new_block] at @s on passengers on passengers run scoreboard players operation @s id = $check id
 execute as @e[type=#scale:scale_block,tag=new_block] at @s run tag @s remove new_block

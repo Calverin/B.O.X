@@ -6,7 +6,7 @@ execute as @e[type=marker,tag=held_block] at @s if score @s id = $check id run f
 execute store result score $b_x pos run data get entity @s Pos[0] 1000
 execute store result score $b_y pos run data get entity @s Pos[1] 1000
 execute store result score $b_z pos run data get entity @s Pos[2] 1000
-execute store result score $b_in_block pos unless block ~-1 ~ ~-1 air
+execute store result score $b_in_block pos unless block ~-1 ~ ~-1 #scale:air_ish
 
 # Temp block positions for math
 scoreboard players operation $t_x pos = $m_x pos
@@ -30,20 +30,20 @@ scoreboard players set $y math 0
 scoreboard players set $z math 0
 
 #execute if score @s vel_y matches ..-1 positioned ~-1 ~-1.1 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=stationary,dx=1,dy=1.1,dz=1] run scoreboard players set @s vel_y 0
-execute if score @s vel_y matches ..-1 unless block ~ ~-0.1 ~ air run scoreboard players set @s vel_y 0
-execute if score @s vel_y matches ..-1 unless block ~ ~-0.1 ~ air run tp @s ~ ~.1 ~
+execute if score @s vel_y matches ..-1 unless block ~ ~-0.1 ~ #scale:air_ish run scoreboard players set @s vel_y 0
+execute if score @s vel_y matches ..-1 unless block ~ ~-0.1 ~ #scale:air_ish run tp @s ~ ~.1 ~
 #execute if score @s vel_y matches ..-1 positioned ~-1 ~-1.1 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=stationary,dx=1,dy=1.1,dz=1] positioned ~1 ~1.7 ~1 align y run tp @s ~ ~ ~
-execute if score @s vel_y matches 1.. unless block ~ ~1.1 ~ air run tp @s ~ ~-.1 ~
-execute if score @s vel_y matches 1.. unless block ~ ~1.1 ~ air run scoreboard players set @s vel_y 0
+execute if score @s vel_y matches 1.. unless block ~ ~1.1 ~ #scale:air_ish run tp @s ~ ~-.1 ~
+execute if score @s vel_y matches 1.. unless block ~ ~1.1 ~ #scale:air_ish run scoreboard players set @s vel_y 0
 
-execute if score @s vel_x matches 1.. unless block ~0.6 ~0.5 ~ air run tp @s ~-.1 ~ ~
-execute if score @s vel_x matches 1.. unless block ~0.6 ~0.5 ~ air run scoreboard players set @s vel_x 0
-execute if score @s vel_x matches ..-1 unless block ~-0.6 ~0.5 ~ air run tp @s ~.1 ~ ~
-execute if score @s vel_x matches ..-1 unless block ~-0.6 ~0.5 ~ air run scoreboard players set @s vel_x 0
-execute if score @s vel_z matches 1.. unless block ~ ~0.5 ~0.6 air run tp @s ~ ~ ~-.1
-execute if score @s vel_z matches 1.. unless block ~ ~0.5 ~0.6 air run scoreboard players set @s vel_z 0
-execute if score @s vel_z matches ..-1 unless block ~ ~0.5 ~-0.6 air run tp @s ~ ~ ~.1
-execute if score @s vel_z matches ..-1 unless block ~ ~0.5 ~-0.6 air run scoreboard players set @s vel_z 0
+execute if score @s vel_x matches 1.. unless block ~0.6 ~0.5 ~ #scale:air_ish run tp @s ~-.1 ~ ~
+execute if score @s vel_x matches 1.. unless block ~0.6 ~0.5 ~ #scale:air_ish run scoreboard players set @s vel_x 0
+execute if score @s vel_x matches ..-1 unless block ~-0.6 ~0.5 ~ #scale:air_ish run tp @s ~.1 ~ ~
+execute if score @s vel_x matches ..-1 unless block ~-0.6 ~0.5 ~ #scale:air_ish run scoreboard players set @s vel_x 0
+execute if score @s vel_z matches 1.. unless block ~ ~0.5 ~0.6 #scale:air_ish run tp @s ~ ~ ~-.1
+execute if score @s vel_z matches 1.. unless block ~ ~0.5 ~0.6 #scale:air_ish run scoreboard players set @s vel_z 0
+execute if score @s vel_z matches ..-1 unless block ~ ~0.5 ~-0.6 #scale:air_ish run tp @s ~ ~ ~.1
+execute if score @s vel_z matches ..-1 unless block ~ ~0.5 ~-0.6 #scale:air_ish run scoreboard players set @s vel_z 0
 
 execute unless score $x math matches 0 run scoreboard players operation @s vel_x = $x math
 execute unless score $y math matches 0 run scoreboard players operation @s vel_y = $y math
@@ -70,21 +70,21 @@ execute store result entity @s Pos[0] double 0.001 run scoreboard players get $b
 execute store result entity @s Pos[1] double 0.001 run scoreboard players get $b_y pos
 execute store result entity @s Pos[2] double 0.001 run scoreboard players get $b_z pos
 
-execute unless block ~ ~-0.001 ~ air unless block ~ ~ ~ air positioned ~ ~0.5 ~ align y run tp @s ~ ~ ~
+execute unless block ~ ~-0.001 ~ #scale:air_ish unless block ~ ~ ~ #scale:air_ish positioned ~ ~0.5 ~ align y run tp @s ~ ~ ~
 #execute positioned ~-1 ~-.1 ~-1 if entity @e[type=block_display,tag=block,tag=!shulker,tag=stationary,dx=1,dy=1,dz=1] run say TOUCHING
-execute unless block ~ ~1.001 ~ air unless block ~ ~ ~ air positioned ~ ~-0.5 ~ align y run tp @s ~ ~ ~
-execute unless block ~-1.001 ~0.5 ~ air unless block ~ ~ ~ air positioned ~0.5 ~ ~ align x run tp @s ~ ~ ~
-execute unless block ~1.001 ~0.5 ~ air unless block ~ ~ ~ air positioned ~-0.5 ~ ~ align x run tp @s ~ ~ ~
-execute unless block ~ ~0.5 ~-1.001 air unless block ~ ~ ~ air positioned ~ ~ ~0.5 align z run tp @s ~ ~ ~
-execute unless block ~ ~0.5 ~1.001 air unless block ~ ~ ~ air positioned ~ ~ ~-0.5 align z run tp @s ~ ~ ~
+execute unless block ~ ~1.001 ~ #scale:air_ish unless block ~ ~ ~ #scale:air_ish positioned ~ ~-0.5 ~ align y run tp @s ~ ~ ~
+execute unless block ~-1.001 ~0.5 ~ #scale:air_ish unless block ~ ~ ~ #scale:air_ish positioned ~0.5 ~ ~ align x run tp @s ~ ~ ~
+execute unless block ~1.001 ~0.5 ~ #scale:air_ish unless block ~ ~ ~ #scale:air_ish positioned ~-0.5 ~ ~ align x run tp @s ~ ~ ~
+execute unless block ~ ~0.5 ~-1.001 #scale:air_ish unless block ~ ~ ~ #scale:air_ish positioned ~ ~ ~0.5 align z run tp @s ~ ~ ~
+execute unless block ~ ~0.5 ~1.001 #scale:air_ish unless block ~ ~ ~ #scale:air_ish positioned ~ ~ ~-0.5 align z run tp @s ~ ~ ~
 
-#execute unless block ~ ~ ~ air if block ~-1 ~ ~ air run tp @s ~-0.5 ~ ~
-#execute unless block ~ ~ ~ air if block ~1 ~ ~ air run tp @s ~0.5 ~ ~
-#execute unless block ~ ~ ~ air if block ~ ~ ~-1 air run tp @s ~ ~ ~-0.5
-#execute unless block ~ ~ ~ air if block ~ ~ ~1 air run tp @s ~ ~ ~0.5
+#execute unless block ~ ~ ~ #scale:air_ish if block ~-1 ~ ~ #scale:air_ish run tp @s ~-0.5 ~ ~
+#execute unless block ~ ~ ~ #scale:air_ish if block ~1 ~ ~ #scale:air_ish run tp @s ~0.5 ~ ~
+#execute unless block ~ ~ ~ #scale:air_ish if block ~ ~ ~-1 #scale:air_ish run tp @s ~ ~ ~-0.5
+#execute unless block ~ ~ ~ #scale:air_ish if block ~ ~ ~1 #scale:air_ish run tp @s ~ ~ ~0.5
 
 
-#execute unless block ~ ~ ~ air if block ~ ~-1.1 ~ air run tp @s ~ ~-0.5 ~
+#execute unless block ~ ~ ~ #scale:air_ish if block ~ ~-1.1 ~ #scale:air_ish run tp @s ~ ~-0.5 ~
 #execute if score $x math matches 1 if score $y math matches 0 if score $z math matches 0 positioned ~-1 ~ ~ align x run tp @s ~ ~ ~
 #execute if score $x math matches -1 if score $y math matches 0 if score $z math matches 0 positioned ~1 ~ ~ align x run tp @s ~ ~ ~
 #execute if score $x math matches 0 if score $y math matches 1 if score $z math matches 0 positioned ~ ~-1 ~ align y run tp @s ~ ~ ~

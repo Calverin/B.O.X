@@ -12,9 +12,11 @@ scoreboard objectives add pressed dummy
 scoreboard objectives add power dummy
 scoreboard objectives add max_power dummy
 scoreboard objectives add cooldown dummy
+scoreboard players set $dropped id 0
 
 scoreboard objectives add number dummy
 scoreboard players set $-1 number -1
+scoreboard players set $1 number 1
 scoreboard players set $2 number 2
 scoreboard players set $3 number 3
 scoreboard players set $10 number 10

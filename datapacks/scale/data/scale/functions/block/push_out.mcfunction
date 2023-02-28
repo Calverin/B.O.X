@@ -6,7 +6,7 @@
 #execute store result entity @s[tag=!stationary] Pos[1] double 0.001 run scoreboard players get $r_y pos
 #execute store result entity @s[tag=!stationary] Pos[2] double 0.001 run scoreboard players get $r_z pos
 #say PUSH!
-#tag @s add stationary
+#function scale:block/freeze
 
 execute if score @s vel_y matches 101.. run scoreboard players remove @s vel_y 100
 execute if score @s vel_y matches 101.. run scoreboard players remove @s vel_y 100
