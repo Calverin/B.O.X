@@ -1,0 +1,1 @@
+tag @a remove has_joined

@@ -1,5 +1,6 @@
 tag @s remove playing
 gamemode adventure @s
+clear @s
 tp @s -44 -60 51
 spawnpoint @s -44 -60 51
 setworldspawn -44 -60 51

@@ -26,3 +26,5 @@ scoreboard players set $200 number 200
 scoreboard players set $2000 number 2000
 scoreboard players set $13769 number 13769
 scoreboard players set $2472808 number 2472808
+
+schedule function scale:general/reset 40t
